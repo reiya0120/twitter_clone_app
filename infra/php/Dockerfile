@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-buster
+FROM php:7.3-fpm
 SHELL ["/bin/bash", "-oeux", "pipefail", "-c"]
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
