@@ -16,7 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+      'screen_name',
+      'name',
+      'profile_image',
+      'email',
+      'password'
     ];
 
     /**
@@ -27,4 +31,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function followers()
+    {
+        return $this->belongsTo('App\Models\Follower', 'foreign_key');
+    }
+
+    public function follows()
+    {
+        return $this->hasMany('App\Models\Follower', 'foreign_key');
+    }
 }

@@ -11,17 +11,17 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+      Schema::create('users', function (Blueprint $table) {
+          $table->increments('user_id');
+          $table->string('screen_name')->unique()->nullable(false)->comment('アカウント名');
+          $table->string('name')->nullable(false)->comment('ユーザ名');
+          $table->string('profile_image')->nullable()->comment('プロフィール画像');
+          $table->string('password');
+          $table->rememberToken();
+          $table->timestamps();
+      });
     }
 
     /**
